@@ -92,10 +92,6 @@ static size_t large_os_page_size = 0;
 // set dynamically in _mi_os_init (and if true we use MAP_NORESERVE)
 static bool os_overcommit = true;
 
-bool _mi_os_has_overcommit(void) {
-  return os_overcommit;
-}
-
 // OS (small) page size
 size_t _mi_os_page_size(void) {
   return os_page_size;
@@ -280,7 +276,6 @@ void _mi_os_init(void) {
     os_alloc_granularity = os_page_size;
   }
   large_os_page_size = 2*MI_MiB; // TODO: can we query the OS for this?
-  os_detect_overcommit();
 }
 #endif
 

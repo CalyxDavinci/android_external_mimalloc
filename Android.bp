@@ -80,4 +80,8 @@ cc_library {
     apex_available: [
         "com.android.runtime",
     ],
+
+    lto: {
+        never: true,
+    },
 }

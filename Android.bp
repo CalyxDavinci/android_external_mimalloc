@@ -16,6 +16,7 @@ common_cflags = [
     // The following flags are for avoiding errors when compiling.
     "-Wno-unused-parameter",
     "-Wno-unused-function",
+    "-Wno-unused-variable",
     "-Wno-missing-field-initializers",
 ]
 
@@ -47,7 +48,6 @@ lib_srcs = [
     "src/alloc-aligned.c",
     "src/alloc-posix.c",
     "src/heap.c",
-    "src/options.c",
     "src/init.c",
 ]
 

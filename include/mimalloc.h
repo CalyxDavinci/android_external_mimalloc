@@ -339,14 +339,44 @@ typedef enum mi_option_e {
 } mi_option_t;
 
 
-mi_decl_nodiscard mi_decl_export bool mi_option_is_enabled(mi_option_t option);
+static mi_decl_export inline bool mi_option_is_enabled(mi_option_t option)
+{
+  switch (option) {
+  case mi_option_eager_commit:
+  case mi_option_allow_decommit:
+  return true;
+  default:
+  return false;
+  }
+}
 mi_decl_export void mi_option_enable(mi_option_t option);
 mi_decl_export void mi_option_disable(mi_option_t option);
 mi_decl_export void mi_option_set_enabled(mi_option_t option, bool enable);
 mi_decl_export void mi_option_set_enabled_default(mi_option_t option, bool enable);
 
-mi_decl_nodiscard mi_decl_export long mi_option_get(mi_option_t option);
-mi_decl_nodiscard mi_decl_export long mi_option_get_clamp(mi_option_t option, long min, long max);
+static mi_decl_export inline long mi_option_get(mi_option_t option)
+{
+  switch (option) {
+  case mi_option_reserve_huge_os_pages_at:
+  return -1;
+  case mi_option_eager_commit_delay:
+  return 1;
+  case mi_option_segment_decommit_delay:
+  return 500;
+  case mi_option_decommit_extend_delay:
+  return 2;
+  case mi_option_decommit_delay:
+  return 25;
+  default:
+  return 0;
+  }
+}
+static mi_decl_export inline long mi_option_get_clamp(mi_option_t option, long min, long max)
+{
+  (void)max;
+  (void)option;
+  return min;
+}
 mi_decl_export void mi_option_set(mi_option_t option, long value);
 mi_decl_export void mi_option_set_default(mi_option_t option, long value);
 

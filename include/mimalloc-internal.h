@@ -49,13 +49,13 @@ terms of the MIT license. A copy of the license can be found in the file
 #endif
 
 // "options.c"
-void       _mi_fputs(mi_output_fun* out, void* arg, const char* prefix, const char* message);
-void       _mi_fprintf(mi_output_fun* out, void* arg, const char* fmt, ...);
-void       _mi_warning_message(const char* fmt, ...);
-void       _mi_verbose_message(const char* fmt, ...);
-void       _mi_trace_message(const char* fmt, ...);
-void       _mi_options_init(void);
-void       _mi_error_message(int err, const char* fmt, ...);
+#define    _mi_fputs(...)
+#define    _mi_fprintf(...)
+#define    _mi_warning_message(...)
+#define    _mi_verbose_message(...)
+#define    _mi_trace_message(...)
+#define    _mi_options_init(void)
+#define    _mi_error_message(...)
 
 // random.c
 void       _mi_random_init(mi_random_ctx_t* ctx);

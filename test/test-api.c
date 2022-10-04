@@ -50,7 +50,7 @@ bool test_stl_allocator2(void);
 // Main testing
 // ---------------------------------------------------------------------------
 int main(void) {
-  mi_option_disable(mi_option_verbose);
+  // mi_option_disable(mi_option_verbose);
 
   // ---------------------------------------------------
   // Malloc

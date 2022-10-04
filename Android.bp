@@ -37,9 +37,7 @@ common_cflags = [
     "-Wextra",
     "-fvisibility=hidden",
     "-ftls-model=initial-exec",
-
-    // From scudo
-    //"-fno-stack-protector",
+    "-funroll-loops",
     "-fno-emulated-tls",
 
     // The following flags are for avoiding errors when compiling.
